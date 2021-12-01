@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.BoxEventConfigMapper">
+    <resultMap id="BaseResultMap" type="com.hiwoo.entity.BoxEventConfig">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="ruleName" property="ruleName" jdbcType="VARCHAR"/>
+        <result column="ruleCode" property="ruleCode" jdbcType="VARCHAR"/>
+        <result column="conditionMsg" property="condition" jdbcType="VARCHAR"/>
+        <result column="action" property="action" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="eventVersion" property="eventVersion" jdbcType="VARCHAR"/>
+        <result column="appId" property="appId" jdbcType="VARCHAR"/>
+        <result column="authGroupId" property="authGroupId" jdbcType="VARCHAR"/>
+
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id,ruleName,ruleCode,conditionMsg,action,content,eventVersion,appId,authGroupId
+    </sql>
+
+    <select id="getEventByCodes" parameterType="java.util.Set" resultMap="BaseResultMap">
+        select * from boxEventConfig where ruleCode in
+        <foreach  collection="collection" item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

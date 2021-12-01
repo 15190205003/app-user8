@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.BoxAlarmConfigMapper">
+    <resultMap id="BaseResultMap" type="com.hiwoo.entity.BoxAlarmConfig">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="ruleName" property="ruleName" jdbcType="VARCHAR"/>
+        <result column="ruleCode" property="ruleCode" jdbcType="VARCHAR"/>
+        <result column="conditionMsg" property="condition" jdbcType="VARCHAR"/>
+        <result column="action" property="action" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="alarmVersion" property="alarmVersion" jdbcType="VARCHAR"/>
+        <result column="appId" property="appId" jdbcType="VARCHAR"/>
+        <result column="authGroupId" property="authGroupId" jdbcType="VARCHAR"/>
+        <result column="clearAlarm" property="clearAlarm" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id,ruleName,ruleCode,conditionMsg,action,content,alarmVersion,appId,authGroupId,clearAlarm
+    </sql>
+
+    <select id="getAlarmByCodes" parameterType="java.util.Set" resultMap="BaseResultMap">
+        select * from boxAlarmConfig where ruleCode in
+            <foreach collection="collection" item="item" open="(" close=")" separator=",">
+                #{item}
+            </foreach>
+    </select>
+</mapper>

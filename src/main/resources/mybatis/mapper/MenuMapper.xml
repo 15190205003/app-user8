@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="com.hiwoo.entity.Menu">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="guideChinese" property="guideChinese" jdbcType="VARCHAR"/>
+        <result column="guideEnglish" property="guideEnglish" jdbcType="VARCHAR"/>
+        <result column="i" property="i" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="INTEGER"/>
+        <result column="path" property="path" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id,guideChinese,guideEnglish,i,pid,path,
+    </sql>
+
+    <select id="getMenuList" parameterType="java.util.List" resultMap="BaseResultMap">
+        SELECT * FROM menu WHERE id IN
+        <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+            #{item.mid}
+        </foreach>
+    </select>
+
+</mapper>

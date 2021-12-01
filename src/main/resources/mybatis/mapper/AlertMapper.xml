@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.AlertMapper" >
+  <resultMap id="BaseResultMap" type="com.hiwoo.entity.Alert" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="message" property="message" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="INTEGER" />
+    <result column="wechat" property="wechat" jdbcType="INTEGER" />
+    <result column="role" property="role" jdbcType="INTEGER" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id,message,email,wechat,role
+  </sql>
+
+</mapper>

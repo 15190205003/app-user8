@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.DeviceMapper">
+    <resultMap id="BaseResultMap" type="com.hiwoo.entity.Device">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="creator" property="creator" jdbcType="INTEGER"/>
+        <result column="groupId" property="groupId" jdbcType="INTEGER"/>
+        <result column="appId" property="appId" jdbcType="VARCHAR"/>
+        <result column="deviceName" property="deviceName" jdbcType="VARCHAR"/>
+        <result column="deviceCode" property="deviceCode" jdbcType="VARCHAR"/>
+        <result column="deviceAddrType" property="deviceAddrType" jdbcType="INTEGER"/>
+        <result column="deviceAddr" property="deviceAddr" jdbcType="VARCHAR"/>
+        <result column="longitude" property="longitude" jdbcType="DOUBLE"/>
+        <result column="latitude" property="latitude" jdbcType="DOUBLE"/>
+        <result column="deviceLogo" property="deviceLogo" jdbcType="VARCHAR"/>
+        <result column="simpleImg" property="simpleImg" jdbcType="VARCHAR"/>
+        <result column="note" property="note" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="INTEGER"/>
+        <result column="tag" property="tag" jdbcType="VARCHAR"/>
+        <result column="webcamConfig" property="webcamConfig" jdbcType="VARCHAR"/>
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id,creator,groupId,appId,deviceName,deviceCode,deviceAddrType,deviceAddr,longitude,latitude,deviceLogo,simpleImg,
+        note,status,tag,webcamConfig,createTime
+    </sql>
+
+</mapper>

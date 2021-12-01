@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.DeviceEventConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.hiwoo.entity.DeviceEventConfig" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="deviceId" property="deviceId" jdbcType="INTEGER" />
+    <result column="ruleCode" property="ruleCode" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id,deviceId,ruleCode
+  </sql>
+
+
+  <select id="getEventByDeviceId" parameterType="java.util.List"  resultMap="BaseResultMap">
+    SELECT * FROM deviceEventConfig
+    where deviceId in
+    <foreach collection="collection" item="item"  open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

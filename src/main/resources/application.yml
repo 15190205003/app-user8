@@ -1,0 +1,83 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.19.79.177:8761/eureka/
+server:
+  port: 8782
+  url:
+    system: http://172.19.79.177:8781
+
+spring:
+  application:
+    name: app-user
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# mysql配置
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.19.79.177:3306/iot_platform_db3?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&allowMultiQueries=true&oldsyntax\=true
+    username: root
+    password: hwiotdb_0917@1
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 10
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    maxEvictableIdleTimeMillis: 90000
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    maxOpenPreparedStatements: 20
+    removeAbandoned: true
+    removeAbandonedTimeout: 1800
+    logAbandoned: true
+
+# 文件上传
+  servlet:
+    multipart:
+      max-file-size: 5242880
+
+# 映射配置
+mybatis:
+  typeAliasesPackage: com.hiwoo.entity
+  mapperLocations: classpath:mybatis/mapper/*.xml
+  configLocation: classpath:mybatis/sqlmapconfig.xml
+
+auth:
+  userCount: 10000
+  dataCount: 100000000
+  msgCount: 5000
+  webcamCount: 10000
+  dataTotalCount: 10000000
+
+IsPrivatization: 0
+
+Devops:
+  server:
+    url: http://172.19.79.177:8088/IOTDevops
+
+application:
+  baseUrl: https://www.hiwooiot.cn
+  headPortraitFile: /mnt/hwiotsrv/platformImgs
+
+redis:
+  server:
+    url: 172.19.79.177
+    port: 6379
+    timeout: 5000
+  password: redis190212
+
+experience:
+  user: hiwooiot
+
+middelware:
+  appid: HW6000001642266245
+  appsecret: 1a750df515aa8037c497b4170f837c8a1c364977
+  server:
+    url: http://172.19.79.177:8088/IOTMiddleware
+
+

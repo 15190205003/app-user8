@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.RoleJurisdictionMapper">
+    <resultMap id="BaseResultMap" type="com.hiwoo.entity.RoleJurisdiction">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="userId" property="userId" jdbcType="INTEGER"/>
+        <result column="roleName" property="roleName" jdbcType="VARCHAR"/>
+        <result column="roleDescribe" property="roleDescribe" jdbcType="VARCHAR"/>
+        <result column="configJson" property="configJson" jdbcType="VARCHAR"/>
+        <result column="alertMsg" property="alertMsg" jdbcType="INTEGER"/>
+        <result column="createTime" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="isAdmin" property="isAdmin" jdbcType="INTEGER"/>
+        <result column="appId" property="appId" jdbcType="VARCHAR"/>
+        <result column="tag" property="tag" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,userId,roleName,roleDescribe,configJson,alertMsg,isAdmin,createTime,appId,tag
+    </sql>
+
+
+    <insert id="insertAndGetId" useGeneratedKeys="true" keyProperty="id" parameterType="com.hiwoo.entity.RoleJurisdiction">
+  INSERT INTO roleJurisdiction (userId,roleName,roleDescribe,configJson,alertMsg,isAdmin,createTime,appId,tag) VALUE
+  (#{userId,jdbcType=INTEGER},#{roleName,jdbcType=VARCHAR},#{roleDescribe,jdbcType=VARCHAR},#{configJson,jdbcType=VARCHAR},
+  #{alertMsg,jdbcType=INTEGER},#{isAdmin,jdbcType=INTEGER},#{createTime,jdbcType=TIMESTAMP},#{appId,jdbcType=VARCHAR},#{tag,jdbcType=VARCHAR})
+  </insert>
+</mapper>

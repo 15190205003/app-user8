@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.DeviceAlarmConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.hiwoo.entity.DeviceAlarmConfig" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="deviceId" property="deviceId" jdbcType="INTEGER" />
+    <result column="ruleCode" property="ruleCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id,deviceId,ruleCode
+  </sql>
+
+
+  <select id="getAlramByDeviceId" parameterType="java.util.List" resultMap="BaseResultMap">
+    SELECT * FROM deviceAlarmConfig
+    where deviceId in
+    <foreach collection="list" index="index" item="item" open="(" close=")" separator=",">
+      #{item}
+    </foreach>
+  </select>
+</mapper>

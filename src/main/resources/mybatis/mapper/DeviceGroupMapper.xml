@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiwoo.mapper.DeviceGroupMapper" >
+  <resultMap id="BaseResultMap" type="com.hiwoo.entity.DeviceGroup" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="roleId" property="roleId" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="groupTag" property="groupTag" jdbcType="VARCHAR" />
+    <result column="expireTime" property="expireTime" jdbcType="INTEGER" />
+    <result column="dataTotalCount" property="dataTotalCount" jdbcType="DOUBLE" />
+    <result column="currTotalCount" property="currTotalCount" jdbcType="DOUBLE" />
+    <result column="isSetExpireTime" property="isSetExpireTime" jdbcType="INTEGER" />
+    <result column="isDataOverflow" property="isDataOverflow" jdbcType="INTEGER" />
+    <result column="appId" property="appId" jdbcType="VARCHAR" />
+    <result column="authGroupId" property="authGroupId" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="appId" property="appId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,roleId,name,pid,status,groupTag,expireTime,dataTotalCount,currTotalCount,isSetExpireTime,isDataOverflow,appId,authGroupId,tag,appId
+  </sql>
+
+</mapper>
